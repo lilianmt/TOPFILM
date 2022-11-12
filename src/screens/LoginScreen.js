@@ -25,6 +25,9 @@ function LoginScreen() {
         </div>
 
         <div className='loginScreen_body'>
+            {signIn ? (
+            <SignupScreen />
+            ) : (
             <>
                 <h1>Unlimited films, TV programmes and more.</h1>
                 <h2>Watch anywhere. Cancel at any time.</h2>
@@ -47,6 +50,7 @@ function LoginScreen() {
                     </form>
                 </div>
             </>
+            )}
         </div>
     </div>
   )
