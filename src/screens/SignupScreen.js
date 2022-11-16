@@ -6,7 +6,7 @@ function SignupScreen() {
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
 
-    const regitser = (e) => {
+    const register = (e) => {
         e.preventDefault();
 
         auth
@@ -15,7 +15,6 @@ function SignupScreen() {
             passwordRef.current.value
         )
         .then((authUser) => {
-            console.log(authUser);
         })
         .catch((error) => {
             alert(error.message);
@@ -31,7 +30,6 @@ function SignupScreen() {
             passwordRef.current.value
         )
         .then((authUser) => {
-            console.log(authUser);
         })
         .catch((error) => {
             alert(error.message);
@@ -50,7 +48,7 @@ function SignupScreen() {
 
                 <h4>
                     <span className='signupScreen_gray'> New to TOPFILM? </span> 
-                    <span className='signupScreen_link' onClick={regitser}> 
+                    <span className='signupScreen_link' onClick={register}> 
                     Sign Up now.
                     </span>
                 </h4>

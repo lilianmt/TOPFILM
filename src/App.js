@@ -12,7 +12,7 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
         // Logged in
-        console.log(userAuth);
+        // console.log(userAuth);
       } else {
         // Logged out
       }
@@ -22,7 +22,6 @@ function App() {
   }, []);
   
   return (
-    
     <div className="app">
         <Router>
           {!user ? (
@@ -31,7 +30,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomeScreen />} />
           </Routes>
-          )} 
+          )}
         </Router>
     </div>
   );
