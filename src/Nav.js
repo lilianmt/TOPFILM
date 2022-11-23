@@ -25,6 +25,7 @@ function Nav() {
     <div className={`nav ${show && 'nav_black'}`}>
         <div className='nav_contents'>
             <img 
+                onClick={() => navigate('/')}
                 className='nav_logo'
                 src={topfilm}
                 alt="" 
