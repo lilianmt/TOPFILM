@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav';
+import PlansScreen from './PlansScreen'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import { auth } from '../firebase';
