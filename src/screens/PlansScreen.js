@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import db from '../firebase';
-import { collection, getDocs, onSnapshot } from 'firebase/firestore';
+import { collection, getDocs, where, query, onSnapshot, addDoc, getDoc, doc } from 'firebase/firestore';
 
 import './PlansScreen.css';
 
@@ -10,30 +10,38 @@ import { loadStripe } from '@stripe/stripe-js';
 
 function PlansScreen() {
     const [products, setProducts] = useState([]);
-    const productsCollectionRef = collection(db, "products");
-    const customersCollectionRef = collection(db, "customers");
     const user = useSelector(selectUser);
 
     useEffect(() => {
-        const getProducts = async () => {
-            const products = await getDocs(productsCollectionRef);
-            setProducts(products.docs.map((doc) => ({...doc.data(), id: doc.id })));
-        }
+        const q = query(collection(db, "products"), where("active", "==", true));
+        const unsub = onSnapshot(q, (querySnapshot) => {
+            const products = {};
+            querySnapshot.forEach(async (productDoc) => {
+                products[productDoc.id] = await productDoc.data();
 
-        getProducts()
-    }, [])
-
-    const loadCheckout = async (priceId) => {
-        const docRef = await customersCollectionRef
-        .doc(user.uid)
-        .collection('checkout_sessions')
-        .add({
-            price: priceId,
-            success_url: window.location.origin,
-            cancel_urlL: window.location.origin,
+                const priceSnap = await getDocs(collection(productDoc.ref, "prices"));
+                priceSnap.docs.forEach((price) => {
+                    products[productDoc.id].price = {
+                        priceId: price.id,
+                        priceData: price.data(),
+                    };
+                });
+            });
+            setProducts(products);
         });
 
-        docRef.onSnapshot(async(snap) => {
+    }, []);
+
+    const loadCheckout = async (priceId) => {
+        const docRef = doc(db, "customers", `${user?.uid}`);
+        const docSnap = await getDoc(docRef);
+        const addedRef = await addDoc(collection(docRef, "checkout_sessions"), {
+        price: priceId,
+        success_url: window.location.origin,
+        cancel_url: window.location.origin,
+      })
+
+        addedRef.onSnapshot(async (snap) => {
             const { error, sessionId } = snap.data();
 
             if (error) {
@@ -47,7 +55,6 @@ function PlansScreen() {
         });
     };
 
-    // console.log(products);
   return (
     <div className='plansScreen'>
         {Object.entries(products).map(([productId, productData]) => {
