@@ -72,7 +72,7 @@ function PlansScreen() {
                     <div className='plansScreen_info'>
                         <h5>{productData.name}</h5>
                         <h6>{productData.description}</h6>
-                        <h6>{productData.prices.priceId}</h6>
+                        {/* <h6>{productData.prices.priceId}</h6> */}
                     </div>
 
                     <button onClick={() => loadCheckout(productData.prices.priceId)}>

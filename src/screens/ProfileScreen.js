@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import { auth } from '../firebase';
 
+import accsymb from '../data/accsymb.png'
+
 import "./ProfileScreen.css";
 
 function ProfileScreen() {
@@ -17,7 +19,7 @@ function ProfileScreen() {
             <h1>Edit Profile</h1>
             <div className='profileScreen_info'>
             <img 
-                src="https://i.pinimg.com/736x/c4/88/34/c488340ad56e5454f4576f6c708b63aa.jpg"
+                src={accsymb}
                 alt=""
             />
             <div className='profileScreen_details'>
