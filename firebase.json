@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/topfilm",
+    "public": "build/topfilm",
     "ignore": [
       "firebase.json",
       "**/.*",
