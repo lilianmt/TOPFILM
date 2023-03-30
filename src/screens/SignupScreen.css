@@ -4,19 +4,26 @@
     margin-left: auto;
     margin-right: auto;
     background: rgba(0, 0, 0, 0.85);
+    border-radius: 0.5rem;
 }
 
 .signupScreen > form h1 {
-    text-align: left;
-    margin-bottom: 25px;
+    text-align: center;
+}
+
+.signupScreen > form p {
+    color: rgb(110, 110, 110);
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .signupScreen_gray {
-    color: gray;
+    color: rgb(158, 158, 158);
 }
 .signupScreen > form h4 {
-    text-align: left;
-    margin-top: 30px;
+    text-align: center;
+    margin-top: 1rem;
 }
 
 .signupScreen > form {
@@ -38,14 +45,19 @@
   font-size: 1rem;
   color: #fff;
   border-radius: 5px;
-  background-color: #e50914;
+  background-color: rgb(201, 46, 149);
   font-weight: 600;
   border: none;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 1rem;
+}
+
+.signupScreen > form > button:hover {
+    background-color: #fff;
+    color:rgb(201, 46, 149);
 }
 
 .signupScreen_link:hover {
     cursor: pointer;
-    text-decoration: underline;
+    color: rgb(201, 46, 149);
 }

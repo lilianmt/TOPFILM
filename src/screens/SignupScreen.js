@@ -41,7 +41,8 @@ function SignupScreen() {
     return (
         <div className='signupScreen'>
             <form>
-                <h1>Sign In</h1>
+                <h1>Sign In/Sign Up</h1>
+                <p>Insert random credentials to Sign Up.</p>
                 <input ref={emailRef} placeholder='Email' type='email' />
                 <input ref={passwordRef} placeholder='Password' type='password' />
                 <button type='submit' onClick={signIn}>
@@ -51,7 +52,7 @@ function SignupScreen() {
                 <h4>
                     <span className='signupScreen_gray'> New to TOPFILM? </span> 
                     <span className='signupScreen_link' onClick={register}> 
-                    Sign Up now.
+                    Sign Up now
                     </span>
                 </h4>
             </form>

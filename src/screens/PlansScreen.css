@@ -18,3 +18,9 @@
     border: none;
     cursor: pointer;
 }
+
+.plansScreen_plan > button:hover {
+    background-color: #fff;
+    color: #c92e95;
+}
+

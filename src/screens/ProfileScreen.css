@@ -31,6 +31,13 @@
     color: white;
     background-color: #c92e95;
     border: none;
+    font-weight: 600;
+}
+
+.profileScreen_signOut:hover {
+    background-color: #fff;
+    color: #c92e95;
+    cursor: pointer;
 }
 
 .profileScreen_plans {

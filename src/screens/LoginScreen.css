@@ -7,18 +7,22 @@
 
 .loginScreen_body > h1 {
     font-size: 3.125rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    background: -webkit-linear-gradient(45deg, #d53181, #733189);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .loginScreen_body > h2 {
-    font-size: 2rem;
-    font-weight: 400;
-    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .loginScreen_body > h3 {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 400;
+    margin-bottom: 40px;
 }
 
 .loginScreen_body {
@@ -43,6 +47,10 @@
     padding-top: 30px;
 }
 
+.loginScreen_logo:hover {
+    cursor: pointer;
+}
+
 .loginScreen_button {
     position: fixed;
     right: 20px;
@@ -64,7 +72,7 @@
     background-image: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.8) 0,
-        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0.5) 60%,
         rgba(0, 0, 0, 0.8) 100%
     );
 }
@@ -91,4 +99,11 @@
     border: none;
     font-weight: 600;
     cursor: pointer;
+    margin-left: 1rem;
+    border-radius: 5px;
+}
+
+.loginScreen_getStarted:hover {
+    color: rgb(201, 46, 149);
+    background-color: #fff;
 }
