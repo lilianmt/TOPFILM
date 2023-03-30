@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAg0nvuK90jSOUxMe-omJBbrkNZ0GYGik8",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "topfilm-clickschool.firebaseapp.com",
   projectId: "topfilm-clickschool",
   storageBucket: "topfilm-clickschool.appspot.com",
